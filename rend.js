@@ -3,10 +3,13 @@ const http = require('http').Server(app);
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect(
-  "mongodb+srv://mani2345:mani2345@cluster0.f4fzo.mongodb.net/court", // Specify the 'court' database
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect("mongodb+srv://mani2309:mani2309@vtcluster.oeavm.mongodb.net/court", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tls: true,
+  tlsAllowInvalidCertificates: true  // Not recommended for production
+})
+
 
 // Define Schema for 'tax' collection
 const taxSchema = new mongoose.Schema({}, { collection: 'tax' }); // Empty schema assumes flexible structure
